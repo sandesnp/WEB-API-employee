@@ -1,6 +1,8 @@
 package com.sandesh.web_api_employee.Views;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.view.View;
@@ -10,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.sandesh.web_api_employee.R;
+import com.sandesh.web_api_employee.adapter.employeeAdapter;
 import com.sandesh.web_api_employee.api.EmployeeAPI;
 import com.sandesh.web_api_employee.model.Employee;
 
@@ -27,18 +30,18 @@ public class showEmployeeActivity extends AppCompatActivity {
 private final static String BASE_URL = "http://dummy.restapiexample.com/api/v1/";
 
 private EditText etsearch;
-private TextView tvsearch;
 private Button btnsearch;
 
+private RecyclerView recyclerView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_employee);
 
         etsearch=findViewById(R.id.etsearch);
-        tvsearch=findViewById(R.id.tvsearch);
 
         btnsearch=findViewById(R.id.btnsearch);
+        recyclerView=findViewById(R.id.recyclerViewSingle);
 
 
         btnsearch.setOnClickListener(new View.OnClickListener() {
@@ -70,16 +73,11 @@ private Button btnsearch;
                 Employee emp = response.body();
 
                 employeeList.add(emp);
+                employeeAdapter employeeAdapter = new employeeAdapter(getBaseContext(), employeeList);
+                recyclerView.setAdapter(employeeAdapter);
+                recyclerView.setLayoutManager(new LinearLayoutManager(getBaseContext()));
                 ////////////////////
 
-                String content= "";
-
-                content += "ID : "+response.body().getId() + "\n";
-                content += "Name : "+response.body().getEmployee_name() + "\n";
-                content += "Age : "+response.body().getEmployee_age() + "\n";
-                content += "Salary : "+response.body().getEmployee_salary() + "\n";
-
-                tvsearch.setText(content);
             }
 
             @Override
