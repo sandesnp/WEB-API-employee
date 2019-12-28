@@ -4,32 +4,36 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
+    tools:context=".Views.EmployeeRegisterActivity"
     android:orientation="vertical"
-    android:gravity="center"
     >
 
-    <Button
-        android:id="@+id/btnemployee"
+    <EditText
+        android:id="@+id/etnamee"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Show All EMPLOYEE"
-        android:textSize="30dp"
+        android:hint="Enter Name"
+        />
+
+    <EditText
+        android:id="@+id/etsalary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Salary"
+        />
+
+    <EditText
+        android:id="@+id/etage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Age"
         />
 
     <Button
-        android:id="@+id/btngoregister"
+        android:id="@+id/btnregister"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Employee Registration"
-        android:textSize="30dp" />
-
-    <Button
-        android:id="@+id/btnsearchemployee"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Search Employee"
-        android:textSize="30dp"
+        android:text="Register"
         />
 
 </LinearLayout>

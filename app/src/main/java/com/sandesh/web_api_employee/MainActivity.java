@@ -1,19 +1,19 @@
 package com.sandesh.web_api_employee;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Switch;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.sandesh.web_api_employee.Views.EmployeeActivity;
+import com.sandesh.web_api_employee.Views.EmployeeRegisterActivity;
 import com.sandesh.web_api_employee.Views.showEmployeeActivity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private Button btnEmployee;
-    private Button showWord;
+    private Button btnRegister;
     private Button btnsearchEmployee;
 
     @Override
@@ -23,8 +23,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         btnEmployee = findViewById(R.id.btnemployee);
         btnsearchEmployee = findViewById(R.id.btnsearchemployee);
+        btnRegister=findViewById(R.id.btngoregister);
+
+
         btnEmployee.setOnClickListener(this);
+        btnRegister.setOnClickListener(this);
         btnsearchEmployee.setOnClickListener(this);
+
 
 
 
@@ -43,6 +48,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(intent2);
                 break;
 
+            case R.id.btngoregister:
+                Intent intent03 = new Intent(MainActivity.this, EmployeeRegisterActivity.class);
+                startActivity(intent03);
+                break;
 
         }
     }

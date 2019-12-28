@@ -12,17 +12,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Views.showEmployeeActivity">
-
+        <activity android:name=".Views.EmployeeRegisterActivity"></activity>
+        <activity android:name=".Views.showEmployeeActivity"></activity>
+        <activity android:name=".Views.EmployeeActivity" />
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity android:name=".Views.EmployeeActivity" />
-        <activity android:name=".MainActivity">
-
         </activity>
     </application>
 
